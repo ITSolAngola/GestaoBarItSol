@@ -1,0 +1,162 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.geometry.Insets?>
+<?import javafx.geometry.Rectangle2D?>
+<?import javafx.scene.Cursor?>
+<?import javafx.scene.control.Label?>
+<?import javafx.scene.image.Image?>
+<?import javafx.scene.image.ImageView?>
+<?import javafx.scene.layout.Pane?>
+<?import javafx.scene.layout.StackPane?>
+<?import javafx.scene.text.Font?>
+<?import javafx.scene.text.Text?>
+
+<StackPane fx:id="stackGerenciaBar" maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="600.0" prefWidth="1000.0" xmlns="http://javafx.com/javafx/10.0.1" xmlns:fx="http://javafx.com/fxml/1" fx:controller="controladores.AdministradorController">
+   <children>
+      <Pane maxWidth="265.0" prefHeight="600.0" prefWidth="350.0" style="-fx-background-color: #fff;" StackPane.alignment="TOP_LEFT">
+         <children>
+            <Pane prefHeight="64.0" prefWidth="272.0">
+               <children>
+                  <Label layoutX="62.0" layoutY="4.0" text="Gerenciamento do Bar">
+                     <font>
+                        <Font name="System Bold" size="14.0" />
+                     </font>
+                  </Label>
+                  <Label fx:id="log_usuario" layoutX="96.0" layoutY="27.0" text="Usuario" />
+                  <Label fx:id="log_nivelAcesso" layoutX="93.0" layoutY="45.0" text="Nivel de Acesso" />
+                  <ImageView fitHeight="25.0" fitWidth="40.0" layoutX="209.0" layoutY="31.0" onMouseClicked="#bt_sair" pickOnBounds="true" preserveRatio="true">
+                     <image>
+                        <Image url="@../imagens/006-exit.png" />
+                     </image>
+                  </ImageView>
+               </children>
+            </Pane>
+            <Pane fx:id="pane_vendas" layoutX="61.0" layoutY="85.0" onMouseEntered="#mouse_hover_vendas" onMouseExited="#mouse_exit__vendas" opacity="0.9" prefHeight="80.0" prefWidth="150.0">
+               <children>
+                  <ImageView fitHeight="59.0" fitWidth="59.0" layoutX="45.0" pickOnBounds="true" preserveRatio="true">
+                     <image>
+                        <Image url="@../imagens/vendas1.png" />
+                     </image>
+                  </ImageView>
+                  <Text layoutX="54.0" layoutY="70.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Vendas" wrappingWidth="41.625022888183594">
+                     <font>
+                        <Font name="System Bold" size="11.0" />
+                     </font>
+                  </Text>
+               </children>
+            </Pane>
+            <Pane fx:id="pane_faturacao" layoutX="61.0" layoutY="165.0" onMouseEntered="#mouse_hover_faturacao" onMouseExited="#mouse_exit_faturacao" opacity="0.9" prefHeight="80.0" prefWidth="150.0">
+               <children>
+                  <ImageView fitHeight="59.0" fitWidth="59.0" layoutX="45.0" pickOnBounds="true" preserveRatio="true">
+                     <image>
+                        <Image url="@../imagens/faturacao.png" />
+                     </image>
+                  </ImageView>
+                  <Text layoutX="49.0" layoutY="66.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Faturação">
+                     <font>
+                        <Font name="System Bold" size="11.0" />
+                     </font>
+                  </Text>
+               </children>
+            </Pane>
+            <Pane fx:id="pane_produtos" layoutX="61.0" layoutY="245.0" onMouseClicked="#telaProduto" onMouseEntered="#mouse_hover_produtos" onMouseExited="#mouse_exit_produtos" opacity="0.9" prefHeight="80.0" prefWidth="150.0">
+               <children>
+                  <ImageView fitHeight="59.0" fitWidth="59.0" layoutX="45.0" pickOnBounds="true" preserveRatio="true">
+                     <image>
+                        <Image url="@../imagens/produtos.png" />
+                     </image>
+                  </ImageView>
+                  <Text layoutX="51.0" layoutY="67.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Produtos">
+                     <font>
+                        <Font name="System Bold" size="11.0" />
+                     </font>
+                  </Text>
+               </children>
+            </Pane>
+            <Pane fx:id="pane_pessoal" layoutX="61.0" layoutY="325.0" onMouseClicked="#telaPessoal" onMouseEntered="#mouse_hover_pessoal" onMouseExited="#mouse_exit_pessoal" opacity="0.9" prefHeight="80.0" prefWidth="150.0">
+               <children>
+                  <ImageView fitHeight="59.0" fitWidth="59.0" layoutX="46.0" pickOnBounds="true" preserveRatio="true">
+                     <image>
+                        <Image url="@../imagens/funcionarios.png" />
+                     </image>
+                  </ImageView>
+                  <Text layoutX="56.0" layoutY="71.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Pessoal">
+                     <font>
+                        <Font name="System Bold" size="11.0" />
+                     </font>
+                  </Text>
+               </children>
+            </Pane>
+            <Pane fx:id="pane_estatisticas" layoutX="61.0" layoutY="412.0" onMouseEntered="#mouse_hover_estatisticas" onMouseExited="#mouse_exit_estatisticas" opacity="0.9" prefHeight="80.0" prefWidth="150.0">
+               <children>
+                  <ImageView fitHeight="59.0" fitWidth="59.0" layoutX="46.0" pickOnBounds="true" preserveRatio="true">
+                     <image>
+                        <Image url="@../imagens/estatisticas.png" />
+                     </image>
+                  </ImageView>
+                  <Text layoutX="47.0" layoutY="67.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Estatísticas">
+                     <font>
+                        <Font name="System Bold" size="11.0" />
+                     </font>
+                  </Text>
+               </children>
+            </Pane>
+            <Pane fx:id="pane_seguranca" layoutX="26.0" layoutY="534.0" onMouseEntered="#mouse_hover_seguranca" onMouseExited="#mouse_exit_seguranca" prefHeight="60.0" prefWidth="70.0">
+               <children>
+                  <ImageView fitHeight="33.0" fitWidth="38.0" layoutX="17.0" layoutY="1.0" pickOnBounds="true" preserveRatio="true">
+                     <image>
+                        <Image url="@../imagens/seguranca.png" />
+                     </image>
+                  </ImageView>
+                  <Text layoutX="13.0" layoutY="49.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Segurança">
+                     <font>
+                        <Font name="System Bold" size="9.0" />
+                     </font>
+                  </Text>
+               </children>
+            </Pane>
+            <Pane fx:id="pane_monitoracao" layoutX="109.0" layoutY="534.0" onMouseEntered="#mouse_hover_monitoracao" onMouseExited="#mouse_exit_monitoracao" prefHeight="60.0" prefWidth="70.0">
+               <children>
+                  <ImageView fitHeight="33.0" fitWidth="38.0" layoutX="16.0" pickOnBounds="true" preserveRatio="true">
+                     <image>
+                        <Image url="@../imagens/monitoracao.png" />
+                     </image>
+                  </ImageView>
+                  <Text layoutX="7.0" layoutY="49.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Monitoração">
+                     <font>
+                        <Font name="System Bold" size="9.0" />
+                     </font>
+                  </Text>
+               </children>
+            </Pane>
+            <Pane fx:id="pane_definicoes" layoutX="186.0" layoutY="534.0" onMouseEntered="#mouse_hover_definicoes" onMouseExited="#mouse_exit_definicoes" prefHeight="60.0" prefWidth="70.0">
+               <children>
+                  <ImageView fitHeight="33.0" fitWidth="38.0" layoutX="17.0" layoutY="1.0" pickOnBounds="true" preserveRatio="true">
+                     <image>
+                        <Image url="@../imagens/definicoes.png" />
+                     </image>
+                  </ImageView>
+                  <Text layoutX="13.0" layoutY="49.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Definições">
+                     <font>
+                        <Font name="System Bold" size="9.0" />
+                     </font>
+                  </Text>
+               </children>
+            </Pane>
+         </children>
+      </Pane>
+      <ImageView blendMode="HARD_LIGHT" fitHeight="444.0" fitWidth="738.0" pickOnBounds="true" preserveRatio="true">
+         <image>
+            <Image url="@../imagens/fundoSistema.jpg" />
+         </image>
+         <viewport>
+            <Rectangle2D />
+         </viewport>
+         <StackPane.margin>
+            <Insets right="-260.0" />
+         </StackPane.margin>
+         <cursor>
+            <Cursor fx:constant="DEFAULT" />
+         </cursor></ImageView>
+   </children>
+</StackPane>

@@ -1,0 +1,37 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.scene.control.Button?>
+<?import javafx.scene.control.Label?>
+<?import javafx.scene.control.PasswordField?>
+<?import javafx.scene.control.TextField?>
+<?import javafx.scene.layout.Pane?>
+<?import javafx.scene.layout.StackPane?>
+<?import javafx.scene.text.Font?>
+
+<StackPane fx:id="stackLogin" maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="600.0" prefWidth="720.0" xmlns="http://javafx.com/javafx/10.0.1" xmlns:fx="http://javafx.com/fxml/1" fx:controller="controladores.LoginInicialController">
+   <children>
+      <Pane maxHeight="500.0" maxWidth="500.0" prefHeight="500.0" prefWidth="500.0">
+         <children>
+            <Label layoutX="179.0" layoutY="124.0" text="Autênticação">
+               <font>
+                  <Font size="24.0" />
+               </font>
+            </Label>
+            <Label layoutX="121.0" layoutY="229.0" text="Usuário" />
+            <TextField fx:id="txtUsuario" layoutX="193.0" layoutY="225.0" prefWidth="150.0" />
+            <Label layoutX="121.0" layoutY="266.0" text="Senha" />
+            <PasswordField fx:id="txtSenha" layoutX="193.0" layoutY="262.0" prefWidth="150.0" />
+            <Button layoutX="163.0" layoutY="318.0" mnemonicParsing="false" onMouseClicked="#login" prefHeight="20.0" prefWidth="80.0" style="-fx-background-color: #09e2a7;" text="Entrar">
+               <font>
+                  <Font name="System Bold" size="14.0" />
+               </font>
+            </Button>
+            <Button layoutX="252.0" layoutY="318.0" mnemonicParsing="false" onMouseClicked="#fechar" prefHeight="20.0" prefWidth="80.0" style="-fx-background-color: #DF3726;" text="Fechar">
+               <font>
+                  <Font name="System Bold" size="14.0" />
+               </font>
+            </Button>
+         </children>
+      </Pane>
+   </children>
+</StackPane>

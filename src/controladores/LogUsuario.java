@@ -1,0 +1,23 @@
+/*
+ * To change this license header, choose License Headers in Project Properties.
+ * To change this template file, choose Tools | Templates
+ * and open the template in the editor.
+ */
+package controladores;
+
+import java.util.ArrayList;
+
+/**
+ *
+ * @author bacar
+ */
+public class LogUsuario {
+
+    
+    public static ArrayList<String> logUsers = new ArrayList<String>(2);
+   
+
+
+    
+    
+}

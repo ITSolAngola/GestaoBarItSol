@@ -1,0 +1,105 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.scene.control.Button?>
+<?import javafx.scene.control.ComboBox?>
+<?import javafx.scene.control.Label?>
+<?import javafx.scene.control.TableColumn?>
+<?import javafx.scene.control.TableView?>
+<?import javafx.scene.control.TextField?>
+<?import javafx.scene.image.Image?>
+<?import javafx.scene.image.ImageView?>
+<?import javafx.scene.layout.Pane?>
+<?import javafx.scene.layout.StackPane?>
+<?import javafx.scene.text.Font?>
+
+<StackPane fx:id="stack_bebidas" maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="600.0" prefWidth="1000.0" xmlns="http://javafx.com/javafx/10.0.1" xmlns:fx="http://javafx.com/fxml/1" fx:controller="controladores.ProdutosGerenciamentoBebidasController">
+   <children>
+      <Pane maxWidth="380.0" nodeOrientation="LEFT_TO_RIGHT" prefHeight="500.0" prefWidth="380.0" StackPane.alignment="TOP_LEFT">
+         <children>
+            <Label layoutX="103.0" layoutY="14.0" text="Gerenciamento de Bebidas">
+               <font>
+                  <Font name="System Bold" size="14.0" />
+               </font>
+            </Label>
+            <Label fx:id="log_usuario" layoutX="170.0" layoutY="32.0" text="Usuario" />
+            <Label fx:id="log_nivelAcesso" layoutX="148.0" layoutY="48.0" text="Nivel de Acesso" />
+            <ImageView fitHeight="17.0" fitWidth="41.0" layoutX="50.0" layoutY="39.0" onMouseClicked="#voltarBtn" pickOnBounds="true" preserveRatio="true">
+               <image>
+                  <Image url="@../imagens/voltar.png" />
+               </image>
+            </ImageView>
+            <ImageView fitHeight="25.0" fitWidth="40.0" layoutX="283.0" layoutY="39.0" onMouseClicked="#fechar" pickOnBounds="true" preserveRatio="true">
+               <image>
+                  <Image url="@../imagens/006-exit.png" />
+               </image>
+            </ImageView>
+            <Button layoutX="9.0" layoutY="105.0" mnemonicParsing="false" onAction="#pesquisarFuncionario" prefWidth="80.0" style="-fx-background-color: #09e2a7;" text="Procurar">
+               <font>
+                  <Font name="System Bold" size="11.0" />
+               </font>
+            </Button>
+            <ComboBox layoutX="128.0" layoutY="104.0" prefHeight="25.0" prefWidth="108.0" promptText="Categoría" />
+            <Label fx:id="erro_pesquisa" layoutX="135.0" layoutY="131.0" textFill="RED" />
+            <ImageView fx:id="imagemBebida" fitHeight="70.0" fitWidth="122.0" layoutX="247.0" layoutY="70.0" pickOnBounds="true" preserveRatio="true" />
+            <Label layoutX="12.0" layoutY="161.0" text="Nome" />
+            <TextField fx:id="funcionario_nome" layoutX="128.0" layoutY="147.0" maxWidth="150.0" minWidth="150.0" onMouseEntered="#realceCampoNome" onMouseExited="#realceCampoNome_ext" prefWidth="150.0" promptText="Por favor insira o nome" style="-fx-border-color: #c5c3c3;" />
+            <Label fx:id="erro_nome" layoutX="135.0" layoutY="170.0" textFill="RED" />
+            <Label layoutX="12.0" layoutY="195.0" prefHeight="15.0" prefWidth="116.0" text="Categoría" />
+            <ComboBox layoutX="128.0" layoutY="191.0" prefWidth="150.0" promptText="Categoria" />
+            <Label fx:id="erro_bi" layoutX="135.0" layoutY="217.0" textFill="RED" />
+            <Label layoutX="12.0" layoutY="236.0" text="Qtd Total" />
+            <TextField fx:id="funcionario_endereco" layoutX="128.0" layoutY="231.0" maxWidth="150.0" minWidth="150.0" onMouseEntered="#realceCampo_endereco" onMouseExited="#realceCampo_endereco_ext" prefWidth="150.0" promptText="Quantidade Total" style="-fx-border-color: #c5c3c3;" />
+            <Label fx:id="erro_endereco" layoutX="135.0" layoutY="258.0" textFill="RED" />
+            <Label layoutX="12.0" layoutY="277.0" text="Qtd Mínima" />
+            <TextField fx:id="funcionario_telefone1" layoutX="128.0" layoutY="272.0" maxWidth="150.0" minWidth="150.0" onMouseEntered="#realceCampo_telefone1" onMouseExited="#realceCampo_telefone1_ext" prefWidth="150.0" promptText="Quantidade Mínima" style="-fx-border-color: #c5c3c3;" />
+            <Label fx:id="erro_telef1" layoutX="135.0" layoutY="299.0" textFill="RED" />
+            <Label layoutX="12.0" layoutY="321.0" prefHeight="15.0" prefWidth="88.0" text="Medida" />
+            <ComboBox layoutX="128.0" layoutY="317.0" maxWidth="150.0" minWidth="150.0" prefWidth="150.0" promptText="Medida" />
+            <Label fx:id="erro_telef2" layoutX="135.0" layoutY="343.0" textFill="RED" />
+            <Label layoutX="12.0" layoutY="361.0" prefHeight="17.0" prefWidth="99.0" text="Qtd Estoque Min" />
+            <TextField layoutX="129.0" layoutY="357.0" maxWidth="150.0" minWidth="150.0" prefWidth="150.0" promptText="Qtd no estoque" />
+            <Label fx:id="erro_cargo" layoutX="135.0" layoutY="382.0" textFill="RED" />
+            <Label layoutX="12.0" layoutY="401.0" text="Qt Estoque Max" />
+            <TextField fx:id="funcionario_salario" layoutX="128.0" layoutY="396.0" minWidth="150.0" onMouseEntered="#realceCampoSalario" onMouseExited="#realceCampoSalario_ext" prefWidth="150.0" promptText="Qtd Max no estoque" style="-fx-border-color: #c5c3c3;" />
+            <Label fx:id="erro_salario" layoutX="135.0" layoutY="418.0" textFill="RED" />
+            <Label layoutX="12.0" layoutY="438.0" text="Valor da Compra" />
+            <TextField fx:id="funcionario_usuario" layoutX="128.0" layoutY="434.0" prefHeight="25.0" prefWidth="150.0" promptText="Valor da compra" />
+            <Label fx:id="erro_usuario" layoutX="135.0" layoutY="459.0" textFill="RED" />
+            <Label layoutX="12.0" layoutY="478.0" text="Preço Unitário" />
+            <TextField fx:id="funcionario_senha" layoutX="128.0" layoutY="474.0" prefHeight="25.0" prefWidth="150.0" promptText="Preço unitário" />
+            <Label fx:id="erro_senha" layoutX="135.0" layoutY="494.0" textFill="RED" />
+            <Button fx:id="btnEscolherFoto" layoutX="12.0" layoutY="519.0" mnemonicParsing="false" onAction="#escolherFoto" text="Escolher uma foto" />
+            <Pane layoutX="12.0" layoutY="558.0" prefHeight="38.0" prefWidth="357.0">
+               <children>
+                  <Button fx:id="btn_func_adicionar" layoutX="6.0" layoutY="4.0" mnemonicParsing="false" onAction="#registrarFuncionario" prefHeight="30.0" prefWidth="80.0" style="-fx-background-color: #09e2a7;" text="Adicionar">
+                     <font>
+                        <Font name="System Bold" size="11.0" />
+                     </font>
+                  </Button>
+                  <Button layoutX="93.0" layoutY="4.0" mnemonicParsing="false" onMouseClicked="#atualizar" prefHeight="30.0" prefWidth="80.0" style="-fx-background-color: #09e2a7;" text="Atualizar">
+                     <font>
+                        <Font name="System Bold" size="11.0" />
+                     </font>
+                  </Button>
+                  <Button layoutX="182.0" layoutY="4.0" mnemonicParsing="false" onMouseClicked="#listarFuncionario" prefHeight="30.0" prefWidth="80.0" style="-fx-background-color: #09e2a7;" text="Listar">
+                     <font>
+                        <Font name="System Bold" size="11.0" />
+                     </font>
+                  </Button>
+                  <Button layoutX="271.0" layoutY="4.0" mnemonicParsing="false" onMouseClicked="#limparCampos" prefHeight="30.0" prefWidth="80.0" style="-fx-background-color: #09e2a7;" text="Limpar">
+                     <font>
+                        <Font name="System Bold" size="11.0" />
+                     </font>
+                  </Button>
+               </children>
+            </Pane>
+         </children>
+      </Pane>
+      <TableView maxWidth="880.0" prefHeight="200.0" prefWidth="200.0" StackPane.alignment="TOP_RIGHT">
+        <columns>
+          <TableColumn prefWidth="75.0" text="C1" />
+          <TableColumn prefWidth="75.0" text="C2" />
+        </columns>
+      </TableView>
+   </children>
+</StackPane>
