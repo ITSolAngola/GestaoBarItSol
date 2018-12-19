@@ -8,7 +8,7 @@
   </information>
   <resources>
     <j2se version="1.6+" href="http://java.sun.com/products/autodl/j2se"/>
-    <jar href="GestaoBarItSol.jar" size="8394081" download="eager" />
+    <jar href="GestaoBarItSol.jar" size="8997721" download="eager" />
     <jar href="lib\antlr-2.7.7.jar" size="445288" download="eager" />
     <jar href="lib\byte-buddy-1.9.6.jar" size="3262358" download="eager" />
     <jar href="lib\classmate-0.8.0.jar" size="59706" download="eager" />

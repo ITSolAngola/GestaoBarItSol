@@ -1,0 +1,18 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.scene.control.ProgressIndicator?>
+<?import javafx.scene.image.Image?>
+<?import javafx.scene.image.ImageView?>
+<?import javafx.scene.layout.AnchorPane?>
+
+
+<AnchorPane id="AnchorPane" prefHeight="400.0" prefWidth="600.0" xmlns:fx="http://javafx.com/fxml/1" xmlns="http://javafx.com/javafx/10.0.1" fx:controller="controladores.BemVindoController">
+   <children>
+      <ImageView fx:id="imagem" fitHeight="447.0" fitWidth="663.0" pickOnBounds="true" preserveRatio="true">
+         <image>
+            <Image url="@../imagens/IMG_6753.JPG" />
+         </image>
+      </ImageView>
+      <ProgressIndicator layoutX="307.0" layoutY="201.0" />
+   </children>
+</AnchorPane>

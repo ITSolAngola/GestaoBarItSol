@@ -69,7 +69,7 @@ public class PessoalGerenciamentoController implements Initializable {
         
         administradorHome.setScene(scene);
         administradorHome.setMaximized(true);
-        current.hide();
+        current.close();
         administradorHome.show();
     }
 
@@ -113,13 +113,33 @@ public class PessoalGerenciamentoController implements Initializable {
         funcionario.setScene(scene);
         funcionario.setMaximized(true);
         funcionario.setResizable(false);
-        current.hide();
+        current.close();
         funcionario.show();
     }
     
     
     @FXML
     private void tela_Fornecedores(MouseEvent event) {
+        
+             Stage fornecedorTela = new Stage();
+        Parent root = null;
+        
+        try {
+            root = FXMLLoader.load(getClass().getResource("/visualizacao/PessoalGerenciamentoFornecedor.fxml"));
+            EstiloControlador.efeitoTransacao(root);
+        } catch (IOException ex) {
+            Logger.getLogger(AdministradorController.class.getName()).log(Level.SEVERE, null, ex);
+        }
+        
+        Stage current = (Stage)pane_pessoal.getScene().getWindow();
+        Scene scene = new Scene(root);
+        
+        fornecedorTela.setScene(scene);
+        fornecedorTela.setMaximized(true);
+        fornecedorTela.setResizable(false);
+        fornecedorTela.close();
+        fornecedorTela.show();
+        
     }
 
     
