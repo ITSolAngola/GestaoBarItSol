@@ -5,7 +5,7 @@
  */
 package controladores;
 
-import conexao.DBConnection;
+
 import java.io.IOException;
 import java.net.URL;
 import java.sql.Connection;
@@ -29,7 +29,6 @@ import javafx.scene.layout.StackPane;
 import javafx.stage.Stage;
 import javafx.stage.StageStyle;
 import javafx.util.Duration;
-import org.controlsfx.control.Notifications;
 
 /**
  * FXML Controller class
