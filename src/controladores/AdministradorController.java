@@ -5,8 +5,10 @@
  */
 package controladores;
 
+import gestao.bar.api.configuracao.DBConect;
 import java.io.IOException;
 import java.net.URL;
+import java.util.Map;
 import java.util.ResourceBundle;
 import java.util.logging.Level;
 import java.util.logging.Logger;
@@ -20,6 +22,8 @@ import javafx.scene.input.MouseEvent;
 import javafx.scene.layout.Pane;
 import javafx.scene.layout.StackPane;
 import javafx.stage.Stage;
+import javax.persistence.EntityManagerFactory;
+import javax.persistence.Persistence;
 
 /**
  * FXML Controller class
@@ -50,7 +54,9 @@ public class AdministradorController implements Initializable {
     private Pane pane_definicoes;
     @FXML
     private StackPane stackGerenciaBar;
-
+    Map map;
+    
+    public static final EntityManagerFactory FACTORY = Persistence.createEntityManagerFactory("teste.jpa");
     /**
      * Initializes the controller class.
      */
@@ -59,6 +65,9 @@ public class AdministradorController implements Initializable {
         
        log_usuario.setText("Bem-Vindo " +LogUsuario.logUsers.get(0));
        log_nivelAcesso.setText(LogUsuario.logUsers.get(1));
+       
+       //map = DBConect.propMysql("gestaobar", "root","");
+       //DBConect.execute("teste.jpa", map);
     }    
 
 

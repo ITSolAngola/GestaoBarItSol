@@ -1,0 +1,36 @@
+<persistence xmlns="http://java.sun.com/xml/ns/persistence"
+             xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+             xsi:schemaLocation="http://java.sun.com/xml/ns/persistence http://java.sun.com/xml/ns/persistence/persistence_2_0.xsd"
+             version="2.0">
+    <persistence-unit name="sample.jpa" transaction-type="RESOURCE_LOCAL">
+
+        <provider>org.hibernate.jpa.HibernatePersistenceProvider</provider>
+        <class>gestao.bar.api.model.pessoal.Endereco</class>
+        <class>gestao.bar.api.model.pessoal.Funcionario</class>
+        
+    </persistence-unit>
+
+    <persistence-unit name="teste.jpa" transaction-type="RESOURCE_LOCAL">
+        <provider>org.hibernate.jpa.HibernatePersistenceProvider</provider>
+        <class>gestao.bar.api.model.pessoal.Funcionario</class>
+        <class>gestao.bar.api.model.pessoal.Fornecedor</class>
+        <class>gestao.bar.api.model.pessoal.Usuario</class>
+        <class>gestao.bar.api.model.produtos.bebidas.Embalagem</class>
+        <class>gestao.bar.api.model.produtos.bebidas.EstoqueBebida</class>
+        <class>gestao.bar.api.model.produtos.bebidas.UnidadeBebida</class>
+        <class>gestao.bar.api.model.produtos.bebidas.Bebida</class>
+        <class>gestao.bar.api.model.produtos.bebidas.CategoriaBebida</class>
+        <class>gestao.bar.api.model.produtos.bebidas.Dose</class>
+        <class>gestao.bar.api.model.produtos.bebidas.Entrada</class>
+        <exclude-unlisted-classes>true</exclude-unlisted-classes>
+        <properties>
+            <property name="hibernate.dialect" value="org.hibernate.dialect.MySQL5InnoDBDialect" />
+            <property name="hibernate.connection.driver_class" value="com.mysql.jdbc.Driver" />
+            <property name="javax.persistence.jdbc.user" value="root"/>
+            <property name="javax.persistence.jdbc.password" value=""/>
+            <property name="hibernate.show_sql" value="true" />
+            <property name="javax.persistence.jdbc.url" value="jdbc:mysql://localhost/bargestao"/>
+            <property name="hibernate.hbm2ddl.auto" value="update"/>
+        </properties>
+    </persistence-unit>
+</persistence>
