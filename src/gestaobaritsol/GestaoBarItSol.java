@@ -11,12 +11,16 @@ import javafx.scene.Parent;
 import javafx.scene.Scene;
 import javafx.stage.Stage;
 import javafx.stage.StageStyle;
+import javax.persistence.EntityManagerFactory;
+import javax.persistence.Persistence;
 
 /**
  *
  * @author bacar
  */
 public class GestaoBarItSol extends Application {
+    
+    public static final EntityManagerFactory FACTORY = Persistence.createEntityManagerFactory("teste.jpa");
     
     @Override
     public void start(Stage stage) throws Exception {

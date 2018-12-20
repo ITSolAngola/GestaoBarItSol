@@ -149,13 +149,6 @@ public class ProdutosGerenciamentoBebidasController implements Initializable {
         stage = (Stage) stack_bebidas.getScene().getWindow();
         arquivo = escolherFoto.showOpenDialog(stage);
         
-        /*
-        try {
-            computador.open(arquivo);
-        } catch (IOException ex) {
-            Logger.getLogger(ProdutosGerenciamentoBebidasController.class.getName()).log(Level.SEVERE, null, ex);
-        }
-        */
         
         if (arquivo != null) {
             System.out.println(""+arquivo.getAbsolutePath());

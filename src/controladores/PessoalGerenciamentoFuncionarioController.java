@@ -5,13 +5,14 @@
  */
 package controladores;
 
-import static controladores.AdministradorController.FACTORY;
+
 import gestao.bar.api.constantes.Papel;
 import gestao.bar.api.model.pessoal.Endereco;
 import gestao.bar.api.model.pessoal.Funcionario;
 import gestao.bar.api.model.pessoal.Usuario;
 import gestao.bar.api.operacaoCRUD.FuncionarioCRUD;
 import gestao.bar.api.operacaoCRUD.UsuarioCRUD;
+import static gestaobaritsol.GestaoBarItSol.FACTORY;
 import java.io.IOException;
 import java.net.URL;
 import java.sql.Connection;
@@ -134,12 +135,6 @@ public class PessoalGerenciamentoFuncionarioController implements Initializable 
 
     //--------------------------------------------------------------------------------------------
     //conexao
-    private Connection conexao = null;
-
-    //PREPARED Statment
-    private PreparedStatement ps, ps1 = null;
-    private ResultSet rs, rs1 = null;
-
     //para pegar todas as funcoes
     private ObservableList<FuncionarioDAO> funcionarioList;
 
@@ -354,22 +349,7 @@ public class PessoalGerenciamentoFuncionarioController implements Initializable 
     @FXML
     private void listarFuncionario(MouseEvent event) {
         funcionarioList.clear();
-        try {
-
-            ps = conexao.prepareStatement("select idfuncionario,nome,bi,"
-                    + "datanascimento,endereco,telefone1,telefone2,"
-                    + "salario,usuario,senha,tipoUsuario from funcionario join usuario "
-                    + "on(usuario_idusuario=idusuario)");
-
-            rs = ps.executeQuery();
-            while (rs.next()) {
-                // funcionarioList.add(new Funcionario(rs.getInt(1), rs.getString(2), rs.getString(3), rs.getDate(4), rs.getString(5), rs.getInt(6), rs.getInt(7), rs.getDouble(8), rs.getString(9), rs.getString(10), rs.getString(11)));
-            }
-            tabelaFuncionario.setItems(funcionarioList);
-
-        } catch (SQLException ex) {
-            Logger.getLogger(PessoalGerenciamentoFuncionarioController.class.getName()).log(Level.SEVERE, null, ex);
-        }
+      
     }
 
     @FXML
@@ -434,55 +414,7 @@ public class PessoalGerenciamentoFuncionarioController implements Initializable 
 
     @FXML
     private void pesquisarFuncionario(ActionEvent event) throws SQLException {
-        /*
-        
-//RECUPERA O ID DO FUNCIONARIO
-        boolean txtPesquisaId = ValidacaoCampos.isCampoId(funcionario_idPesquisa, erro_pesquisa, "Preencha o campo com número *");
 
-        if (txtPesquisaId) {
-
-            funcionario.setIdfun(Integer.valueOf(funcionario_idPesquisa.getText()));
-            System.err.println(funcionario.getIdfun());
-            String sql = "select idfuncionario,nome,bi,datanascimento,endereco,"
-                    + "telefone1,telefone2,salario,usuario,senha,tipoUsuario from "
-                    + "funcionario join usuario on(usuario_idusuario=idusuario) "
-                    + "where idfuncionario = ?";
-
-            try {
-                ps = conexao.prepareStatement(sql);
-                ps.setInt(1, funcionario.getIdfun());
-
-                rs = ps.executeQuery();
-                if (rs.next()) {
-                    mudarColunaTabFuncionario();
-                    funcionarioList = FXCollections.observableArrayList();
-
-                    try {
-                        ps.clearBatch();
-                        rs.clearWarnings();
-
-                        ps = conexao.prepareStatement(sql);
-                        ps.setInt(1, funcionario.getIdfun());
-                        rs = ps.executeQuery();
-                        while (rs.next()) {
-                            funcionarioList.add(new Funcionario(rs.getInt(1), rs.getString(2), rs.getString(3), rs.getDate(4), rs.getString(5), rs.getInt(6), rs.getInt(7), rs.getDouble(8), rs.getString(9), rs.getString(10), rs.getString(11)));
-                        }
-                        tabelaFuncionario.setItems(funcionarioList);
-
-                    } catch (SQLException ex) {
-                        Logger.getLogger(PessoalGerenciamentoFuncionarioController.class.getName()).log(Level.SEVERE, null, ex);
-                    }
-                } else {
-                    MetodosComuns.mensagem(stckPane_conteiner_funcionarios, "Funcionario " + funcionario_idPesquisa.getText() + " não existe");
-                }
-
-            } catch (SQLException ex) {
-                Logger.getLogger(PessoalGerenciamentoFuncionarioController.class.getName()).log(Level.SEVERE, null, ex);
-            } finally {
-                ps.close();
-            }
-        }
-         */
     }
 
     private void mudarColunaTabFuncionario() {
@@ -526,23 +458,7 @@ public class PessoalGerenciamentoFuncionarioController implements Initializable 
 
     private void mudarColunaTabelaParaTextFild() {
         tabelaFuncionario.setOnMouseClicked(e -> {
-            /*
-            
-             Funcionario funlistagem = tabelaFuncionario.getItems().get(tabelaFuncionario.getSelectionModel().getSelectedIndex());
-            funcionario_idPesquisa.setText(String.valueOf(funlistagem.getIdfun()));
-            funcionario_idPesquisa.setDisable(true);
-            funcionario_nome.setText(funlistagem.getNome());
-            funcionario_bilheteIdent.setText(funlistagem.getBi());
-            funcionario_data_nasc.setValue(funlistagem.getDataNasc().toLocalDate());
-            funcionario_cargo.setValue(funlistagem.getTipoUsuario());
-            funcionario_endereco.setText(funlistagem.getEndereco());
-            funcionario_telefone1.setText(String.valueOf(funlistagem.getTelefone1()));
-            funcionario_telefone2.setText(String.valueOf(funlistagem.getTelefone2()));
-            funcionario_salario.setText(String.valueOf(funlistagem.getSalario()));
-            funcionario_usuario.setText(funlistagem.getUsuario());
-            funcionario_senha.setText(funlistagem.getSenha());
-            
-             */
+         
         });
     }
 

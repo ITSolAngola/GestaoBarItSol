@@ -3,9 +3,10 @@
     <editor-bookmarks xmlns="http://www.netbeans.org/ns/editor-bookmarks/2" lastBookmarkId="0"/>
     <open-files xmlns="http://www.netbeans.org/ns/projectui-open-files/2">
         <group>
-            <file>file:/C:/Users/Proit/Documents/NetBeansProjects/GestaoBarItSol/src/conexao/DBConnection.java</file>
+            <file>file:/C:/Users/Proit/Documents/NetBeansProjects/GestaoBarItSol/src/META-INF/persistence.xml</file>
             <file>file:/C:/Users/Proit/Documents/NetBeansProjects/GestaoBarItSol/src/controladores/LoginInicialController.java</file>
-            <file>file:/C:/Users/Proit/Documents/NetBeansProjects/GestaoBarItSol/src/gestaobaritsol/GestaoBarItSol.java</file>
+            <file>file:/C:/Users/Proit/Documents/NetBeansProjects/GestaoBarItSol/src/controladores/AdministradorController.java</file>
+            <file>file:/C:/Users/Proit/Documents/NetBeansProjects/GestaoBarItSol/src/controladores/LogUsuario.java</file>
         </group>
     </open-files>
 </project-private>
