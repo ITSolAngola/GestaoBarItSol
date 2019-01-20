@@ -33,12 +33,6 @@ import javafx.stage.Stage;
 public class ProdutosGerenciamentoBebidasController implements Initializable {
 
     @FXML
-    private Label log_usuario;
-    @FXML
-    private Label log_nivelAcesso;
-    @FXML
-    private Label erro_pesquisa;
-    @FXML
     private TextField funcionario_nome;
     @FXML
     private Label erro_nome;
@@ -82,6 +76,10 @@ public class ProdutosGerenciamentoBebidasController implements Initializable {
     private Stage stage;
     private Desktop computador = Desktop.getDesktop();
     private Image imagem;
+    @FXML
+    private Label log_usuario1;
+    @FXML
+    private Label log_nivelAcesso1;
     
 
     /**
@@ -149,13 +147,6 @@ public class ProdutosGerenciamentoBebidasController implements Initializable {
         stage = (Stage) stack_bebidas.getScene().getWindow();
         arquivo = escolherFoto.showOpenDialog(stage);
         
-        /*
-        try {
-            computador.open(arquivo);
-        } catch (IOException ex) {
-            Logger.getLogger(ProdutosGerenciamentoBebidasController.class.getName()).log(Level.SEVERE, null, ex);
-        }
-        */
         
         if (arquivo != null) {
             System.out.println(""+arquivo.getAbsolutePath());

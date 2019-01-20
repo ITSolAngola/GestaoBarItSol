@@ -5,7 +5,9 @@
  */
 package controladores;
 
+import static controladores.LoginInicialController.role;
 import gestao.bar.api.configuracao.DBConect;
+import gestao.bar.api.constantes.Papel;
 import java.io.IOException;
 import java.net.URL;
 import java.util.Map;
@@ -54,9 +56,11 @@ public class AdministradorController implements Initializable {
     private Pane pane_definicoes;
     @FXML
     private StackPane stackGerenciaBar;
-    Map map;
     
-    public static final EntityManagerFactory FACTORY = Persistence.createEntityManagerFactory("teste.jpa");
+    @FXML 
+    private Pane panePrincipal;
+    
+
     /**
      * Initializes the controller class.
      */
@@ -65,6 +69,13 @@ public class AdministradorController implements Initializable {
         
        log_usuario.setText("Bem-Vindo " +LogUsuario.logUsers.get(0));
        log_nivelAcesso.setText(LogUsuario.logUsers.get(1));
+       
+       System.out.println("Regra = " + role + " tamanho : " + panePrincipal.getChildren().size());
+       
+       if( role == Papel.VENDEDOR){
+           panePrincipal.getChildren().remove(2,  panePrincipal.getChildren().size());
+         //  pane_faturacao.
+       }
        
        //map = DBConect.propMysql("gestaobar", "root","");
        //DBConect.execute("teste.jpa", map);

@@ -5,13 +5,14 @@
  */
 package controladores;
 
-import static controladores.AdministradorController.FACTORY;
+
 import gestao.bar.api.constantes.Papel;
 import gestao.bar.api.model.pessoal.Endereco;
 import gestao.bar.api.model.pessoal.Funcionario;
 import gestao.bar.api.model.pessoal.Usuario;
 import gestao.bar.api.operacaoCRUD.FuncionarioCRUD;
 import gestao.bar.api.operacaoCRUD.UsuarioCRUD;
+import static gestaobaritsol.GestaoBarItSol.FACTORY;
 import java.io.IOException;
 import java.net.URL;
 import java.sql.Connection;
@@ -134,12 +135,6 @@ public class PessoalGerenciamentoFuncionarioController implements Initializable 
 
     //--------------------------------------------------------------------------------------------
     //conexao
-    private Connection conexao = null;
-
-    //PREPARED Statment
-    private PreparedStatement ps, ps1 = null;
-    private ResultSet rs, rs1 = null;
-
     //para pegar todas as funcoes
     private ObservableList<FuncionarioDAO> funcionarioList;
 
@@ -164,6 +159,14 @@ public class PessoalGerenciamentoFuncionarioController implements Initializable 
     private ToggleGroup radio;
     @FXML
     private RadioButton rd_feminino;
+    @FXML
+    private Label erro_casa;
+    @FXML
+    private Label erro_municipio;
+    @FXML
+    private Label erro_pais;
+    @FXML
+    private Label erro_rua;
 
     /**
      * Initializes the controller class.
@@ -215,75 +218,27 @@ public class PessoalGerenciamentoFuncionarioController implements Initializable 
         MetodosComuns.mensagemSairTerminarLog(stckPane_conteiner_funcionarios);
     }
 
-    @FXML
-    private void realceCampo_idPesquisa_ext(MouseEvent event) {
-    }
-
-    @FXML
-    private void realceCampo_idPesquisa(MouseEvent event) {
-    }
-
-    @FXML
-    private void realceCampoNome_ext(MouseEvent event) {
-    }
-
-    @FXML
-    private void realceCampoNome(MouseEvent event) {
-    }
-
-    @FXML
-    private void realceCampo_bilheteIdent_ext(MouseEvent event) {
-    }
-
-    @FXML
-    private void realceCampo_bilheteIdent(MouseEvent event) {
-    }
-
-    @FXML
-    private void realceCampo_endereco_ext(MouseEvent event) {
-    }
-
-    @FXML
-    private void realceCampo_endereco(MouseEvent event) {
-    }
-
-    @FXML
-    private void realceCampo_telefone1_ext(MouseEvent event) {
-    }
-
-    @FXML
-    private void realceCampo_telefone1(MouseEvent event) {
-    }
-
-    @FXML
-    private void realceCampo_telefone2_ext(MouseEvent event) {
-    }
-
-    @FXML
-    private void realceCampo_telefone2(MouseEvent event) {
-    }
 
     @FXML
     private void registrarFuncionario(ActionEvent event) throws SQLException {
 
-        log.info("passou aqui");
-
         ArrayList<String> telef;
-
-        /*
         
-         boolean txtNomeVazio = ValidacaoCampos.textFieldNaoEstaVazia(funcionario_nome, erro_nome, "Preencha o campo nome *");
-        boolean txtBiVazio = ValidacaoCampos.textFieldNaoEstaVazia(funcionario_bilheteIdent, erro_bi, "Preencha o campo BI *");
-        boolean txtDataNasc = ValidacaoCampos.campoData(funcionario_data_nasc, erro_dataNasc, "Preencha o campo Data Nascimento *");
-        boolean txtEndereco = ValidacaoCampos.textFieldNaoEstaVazia(funcionario_endereco, erro_endereco, "Preencha o campo Endereço *");
-        boolean txtTelef1 = ValidacaoCampos.isCampoTextoTipoNumero(funcionario_telefone1, erro_telef1, "Preencha o campo com números *");
-        boolean txtCargo = ValidacaoCampos.comboBoxValor(funcionario_cargo, erro_cargo, "Preencha o campo Cargo *");
-        boolean txtSalario = ValidacaoCampos.isCampoTextoTipoNumero(funcionario_salario, erro_salario, "Preencha o campo com números *");
-        boolean txtUsuario = ValidacaoCampos.textFieldNaoEstaVazia(funcionario_usuario, erro_usuario, "Preencha o campo Usuario *");
-        boolean txtSenha = ValidacaoCampos.textFieldNaoEstaVazia(funcionario_senha, erro_senha, "Preencha o campo senha *");
-        if (txtNomeVazio && txtBiVazio && txtDataNasc && txtEndereco && txtTelef1 && txtCargo && txtSalario && txtUsuario && txtSenha) {
+        boolean txtNomeVazio = ValidacaoCampos.textFieldNaoEstaVazia(funcionario_nome, erro_nome, "Campo Incorrecto *");
+        boolean txtBiVazio = ValidacaoCampos.textFieldNaoEstaVaziaBi(funcionario_bilheteIdent, erro_bi, "Campo Incorrecto *");
+        boolean txtDataNasc = ValidacaoCampos.campoData(funcionario_data_nasc, erro_dataNasc, "Preencha o campo *");
+        boolean txtPais = ValidacaoCampos.textFieldNaoEstaVazia(funcionario_pais, erro_pais, "Campo Incorrecto *");
+        boolean txtRua = ValidacaoCampos.textFieldNaoEstaVazia(funcionario_rua, erro_rua, "Em falta *");
+        boolean txtMunicipio = ValidacaoCampos.textFieldNaoEstaVazia(funcionario_municipio, erro_municipio, "Campo Incorrecto *");
+        boolean txtCasa = ValidacaoCampos.textFieldNaoEstaVaziaTelef(funcionario_casa, erro_casa, "Em falta *");
+        boolean txtTelef1 = ValidacaoCampos.textFieldNaoEstaVaziaTelef(funcionario_telefone1, erro_telef1, "Campo incorrecto *");
+        boolean txtTelef2 = ValidacaoCampos.textFieldNaoEstaVaziaTelef(funcionario_telefone2, erro_telef2, "Campo incorrecto *");
+        boolean txtCargo = ValidacaoCampos.comboBoxValor(funcionario_cargo, erro_cargo, "Campo Incorrecto *");
+   
+        
+        if (txtNomeVazio && txtBiVazio && txtPais && txtRua && txtMunicipio && txtCasa && txtTelef1 && txtTelef2
+                && txtDataNasc && txtCargo) {
 
-         */
         Funcionario funcionario = new Funcionario();
         funcionario.setNome(funcionario_nome.getText());
         funcionario.setnBilhete(funcionario_bilheteIdent.getText());
@@ -331,54 +286,80 @@ public class PessoalGerenciamentoFuncionarioController implements Initializable 
         }
 
     }
+        
+    }
 
     @FXML
     private void atualizar(MouseEvent event) {
 
-        boolean txtNomeVazio = ValidacaoCampos.textFieldNaoEstaVazia(funcionario_nome, erro_nome, "Preencha o campo nome *");
-        boolean txtBiVazio = ValidacaoCampos.textFieldNaoEstaVazia(funcionario_bilheteIdent, erro_bi, "Preencha o campo BI *");
-        boolean txtDataNasc = ValidacaoCampos.campoData(funcionario_data_nasc, erro_dataNasc, "Preencha o campo Data Nascimento *");
-        boolean txtEndereco = ValidacaoCampos.textFieldNaoEstaVazia(funcionario_endereco, erro_endereco, "Preencha o campo Endereço *");
-        boolean txtTelef1 = ValidacaoCampos.isCampoTextoTipoNumero(funcionario_telefone1, erro_telef1, "Preencha o campo com números *");
-        boolean txtCargo = ValidacaoCampos.comboBoxValor(funcionario_cargo, erro_cargo, "Preencha o campo Cargo *");
-        boolean txtSalario = ValidacaoCampos.isCampoTextoTipoNumero(funcionario_salario, erro_salario, "Preencha o campo com números *");
-        boolean txtUsuario = ValidacaoCampos.textFieldNaoEstaVazia(funcionario_usuario, erro_usuario, "Preencha o campo Usuario *");
-        boolean txtSenha = ValidacaoCampos.textFieldNaoEstaVazia(funcionario_senha, erro_senha, "Preencha o campo senha *");
-
-        if (txtNomeVazio && txtBiVazio && txtDataNasc && txtEndereco && txtTelef1 && txtCargo && txtSalario && txtUsuario && txtSenha) {
-
+        boolean txtNomeVazio = ValidacaoCampos.textFieldNaoEstaVazia(funcionario_nome, erro_nome, "Campo Incorrecto *");
+        boolean txtBiVazio = ValidacaoCampos.textFieldNaoEstaVaziaBi(funcionario_bilheteIdent, erro_bi, "Campo Incorrecto *");
+        boolean txtDataNasc = ValidacaoCampos.campoData(funcionario_data_nasc, erro_dataNasc, "Preencha o campo *");
+        boolean txtPais = ValidacaoCampos.textFieldNaoEstaVazia(funcionario_pais, erro_pais, "Campo Incorrecto *");
+        boolean txtRua = ValidacaoCampos.textFieldNaoEstaVazia(funcionario_rua, erro_rua, "Em falta *");
+        boolean txtMunicipio = ValidacaoCampos.textFieldNaoEstaVazia(funcionario_municipio, erro_municipio, "Campo Incorrecto *");
+        boolean txtCasa = ValidacaoCampos.textFieldNaoEstaVaziaTelef(funcionario_casa, erro_casa, "Em falta *");
+        boolean txtTelef1 = ValidacaoCampos.textFieldNaoEstaVaziaTelef(funcionario_telefone1, erro_telef1, "Campo incorrecto *");
+        boolean txtTelef2 = ValidacaoCampos.textFieldNaoEstaVaziaTelef(funcionario_telefone2, erro_telef2, "Campo incorrecto *");
+        boolean txtCargo = ValidacaoCampos.comboBoxValor(funcionario_cargo, erro_cargo, "Campo Incorrecto *");
+   
+        
+        if (txtNomeVazio && txtBiVazio && txtPais && txtRua && txtMunicipio && txtCasa && txtTelef1 && txtTelef2
+                && txtDataNasc && txtCargo) {
+            
         }
 
     }
 
     @FXML
     private void listarFuncionario(MouseEvent event) {
-        funcionarioList.clear();
-        try {
-
-            ps = conexao.prepareStatement("select idfuncionario,nome,bi,"
-                    + "datanascimento,endereco,telefone1,telefone2,"
-                    + "salario,usuario,senha,tipoUsuario from funcionario join usuario "
-                    + "on(usuario_idusuario=idusuario)");
-
-            rs = ps.executeQuery();
-            while (rs.next()) {
-                // funcionarioList.add(new Funcionario(rs.getInt(1), rs.getString(2), rs.getString(3), rs.getDate(4), rs.getString(5), rs.getInt(6), rs.getInt(7), rs.getDouble(8), rs.getString(9), rs.getString(10), rs.getString(11)));
-            }
-            tabelaFuncionario.setItems(funcionarioList);
-
-        } catch (SQLException ex) {
-            Logger.getLogger(PessoalGerenciamentoFuncionarioController.class.getName()).log(Level.SEVERE, null, ex);
-        }
+        carregarDadosFuncionarioBaseDados();
+        limparErros();
+      
     }
 
     @FXML
     private void limparCampos(MouseEvent event) {
         limpar();
-        listarFuncionario(event);
 
     }
 
+    public void limparErros(){
+        
+        String textoNulo = "";
+        
+        erro_pesquisa.getText();
+        erro_nome.getText();
+        erro_bi.getText();
+        erro_dataNasc.getText();
+        erro_endereco.getText();
+        erro_telef1.getText();
+        erro_telef2.getText();
+        erro_cargo.getText();
+        erro_usuario.getText();
+        erro_senha.getText();
+        erro_pais.getText();
+        erro_municipio.getText();
+        erro_rua.getText();
+        erro_casa.getText();
+        
+        erro_pesquisa.setText(textoNulo);
+        erro_nome.setText(textoNulo);
+        erro_bi.setText(textoNulo);
+        erro_pais.setText(textoNulo);
+        erro_municipio.setText(textoNulo);
+        erro_rua.setText(textoNulo);
+        erro_cargo.setText(textoNulo);
+        erro_dataNasc.setText(textoNulo);
+        erro_endereco.setText(textoNulo);
+        erro_telef1.setText(textoNulo);
+        erro_telef2.setText(textoNulo);
+        erro_casa.setText(textoNulo);
+//        erro_salario.setText(textoNulo);
+        erro_usuario.setText(textoNulo);
+        erro_senha.setText(textoNulo);
+    }
+    
     public void limpar() {
 
         String textoNulo = "";
@@ -390,6 +371,10 @@ public class PessoalGerenciamentoFuncionarioController implements Initializable 
         funcionario_telefone1.getText();
         funcionario_telefone2.getText();
         funcionario_cargo.getValue();
+        funcionario_pais.getText();
+        funcionario_rua.getText();
+        funcionario_casa.getText();
+        funcionario_municipio.getText();
         //funcionario_salario.getText();
         funcionario_usuario.getText();
         funcionario_senha.getText();
@@ -399,8 +384,13 @@ public class PessoalGerenciamentoFuncionarioController implements Initializable 
         funcionario_nome.setText(textoNulo);
         funcionario_bilheteIdent.setText(textoNulo);
         funcionario_data_nasc.setValue(null);
+        funcionario_pais.setText(textoNulo);
+        funcionario_rua.setText(textoNulo);
+        funcionario_municipio.setText(textoNulo);
+        funcionario_casa.setText(textoNulo);
         funcionario_telefone1.setText(textoNulo);
         funcionario_telefone2.setText(textoNulo);
+        
         funcionario_cargo.setValue(null);
         //funcionario_salario.setText(null);
         funcionario_usuario.setText(textoNulo);
@@ -417,15 +407,23 @@ public class PessoalGerenciamentoFuncionarioController implements Initializable 
         erro_cargo.getText();
         erro_usuario.getText();
         erro_senha.getText();
-
+        erro_pais.getText();
+        erro_municipio.getText();
+        erro_rua.getText();
+        erro_casa.getText();
+        
         erro_pesquisa.setText(textoNulo);
         erro_nome.setText(textoNulo);
         erro_bi.setText(textoNulo);
+        erro_pais.setText(textoNulo);
+        erro_municipio.setText(textoNulo);
+        erro_rua.setText(textoNulo);
+        erro_cargo.setText(textoNulo);
         erro_dataNasc.setText(textoNulo);
         erro_endereco.setText(textoNulo);
         erro_telef1.setText(textoNulo);
         erro_telef2.setText(textoNulo);
-        erro_cargo.setText(textoNulo);
+        erro_casa.setText(textoNulo);
 //        erro_salario.setText(textoNulo);
         erro_usuario.setText(textoNulo);
         erro_senha.setText(textoNulo);
@@ -434,55 +432,7 @@ public class PessoalGerenciamentoFuncionarioController implements Initializable 
 
     @FXML
     private void pesquisarFuncionario(ActionEvent event) throws SQLException {
-        /*
-        
-//RECUPERA O ID DO FUNCIONARIO
-        boolean txtPesquisaId = ValidacaoCampos.isCampoId(funcionario_idPesquisa, erro_pesquisa, "Preencha o campo com número *");
 
-        if (txtPesquisaId) {
-
-            funcionario.setIdfun(Integer.valueOf(funcionario_idPesquisa.getText()));
-            System.err.println(funcionario.getIdfun());
-            String sql = "select idfuncionario,nome,bi,datanascimento,endereco,"
-                    + "telefone1,telefone2,salario,usuario,senha,tipoUsuario from "
-                    + "funcionario join usuario on(usuario_idusuario=idusuario) "
-                    + "where idfuncionario = ?";
-
-            try {
-                ps = conexao.prepareStatement(sql);
-                ps.setInt(1, funcionario.getIdfun());
-
-                rs = ps.executeQuery();
-                if (rs.next()) {
-                    mudarColunaTabFuncionario();
-                    funcionarioList = FXCollections.observableArrayList();
-
-                    try {
-                        ps.clearBatch();
-                        rs.clearWarnings();
-
-                        ps = conexao.prepareStatement(sql);
-                        ps.setInt(1, funcionario.getIdfun());
-                        rs = ps.executeQuery();
-                        while (rs.next()) {
-                            funcionarioList.add(new Funcionario(rs.getInt(1), rs.getString(2), rs.getString(3), rs.getDate(4), rs.getString(5), rs.getInt(6), rs.getInt(7), rs.getDouble(8), rs.getString(9), rs.getString(10), rs.getString(11)));
-                        }
-                        tabelaFuncionario.setItems(funcionarioList);
-
-                    } catch (SQLException ex) {
-                        Logger.getLogger(PessoalGerenciamentoFuncionarioController.class.getName()).log(Level.SEVERE, null, ex);
-                    }
-                } else {
-                    MetodosComuns.mensagem(stckPane_conteiner_funcionarios, "Funcionario " + funcionario_idPesquisa.getText() + " não existe");
-                }
-
-            } catch (SQLException ex) {
-                Logger.getLogger(PessoalGerenciamentoFuncionarioController.class.getName()).log(Level.SEVERE, null, ex);
-            } finally {
-                ps.close();
-            }
-        }
-         */
     }
 
     private void mudarColunaTabFuncionario() {
@@ -526,24 +476,10 @@ public class PessoalGerenciamentoFuncionarioController implements Initializable 
 
     private void mudarColunaTabelaParaTextFild() {
         tabelaFuncionario.setOnMouseClicked(e -> {
-            /*
-            
-             Funcionario funlistagem = tabelaFuncionario.getItems().get(tabelaFuncionario.getSelectionModel().getSelectedIndex());
-            funcionario_idPesquisa.setText(String.valueOf(funlistagem.getIdfun()));
-            funcionario_idPesquisa.setDisable(true);
-            funcionario_nome.setText(funlistagem.getNome());
-            funcionario_bilheteIdent.setText(funlistagem.getBi());
-            funcionario_data_nasc.setValue(funlistagem.getDataNasc().toLocalDate());
-            funcionario_cargo.setValue(funlistagem.getTipoUsuario());
-            funcionario_endereco.setText(funlistagem.getEndereco());
-            funcionario_telefone1.setText(String.valueOf(funlistagem.getTelefone1()));
-            funcionario_telefone2.setText(String.valueOf(funlistagem.getTelefone2()));
-            funcionario_salario.setText(String.valueOf(funlistagem.getSalario()));
-            funcionario_usuario.setText(funlistagem.getUsuario());
-            funcionario_senha.setText(funlistagem.getSenha());
-            
-             */
+         
         });
     }
+
+
 
 }

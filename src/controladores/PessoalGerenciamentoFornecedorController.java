@@ -37,28 +37,13 @@ public class PessoalGerenciamentoFornecedorController implements Initializable {
     @FXML
     private Label log_nivelAcesso;
     @FXML
-    private TextField funcionario_nome;
-    @FXML
     private Label erro_nome;
     @FXML
-    private TextField funcionario_pais;
-    @FXML
-    private TextField funcionario_municipio;
-    @FXML
-    private TextField funcionario_rua;
-    @FXML
-    private Label erro_endereco;
-    @FXML
-    private TextField funcionario_telefone1;
-    @FXML
     private Label erro_telef1;
-    @FXML
-    private TextField funcionario_telefone2;
     @FXML
     private Label erro_telef2;
     @FXML
     private Button btn_func_adicionar;
-    @FXML
     private TextField funcionario_idPesquisa;
     @FXML
     private Label erro_pesquisa;
@@ -76,13 +61,36 @@ public class PessoalGerenciamentoFornecedorController implements Initializable {
     private TableColumn<?, ?> col_Telefone_Opcional;
     @FXML
     private StackPane stckPane_conteiner_forncedor;
+    @FXML
+    private TextField fornecedor_nome;
+    @FXML
+    private TextField fornecedor_pais;
+    @FXML
+    private TextField fornecedor_municipio;
+    @FXML
+    private TextField fornecedor_rua;
+    @FXML
+    private TextField fornecedor_telefone1;
+    @FXML
+    private TextField fornecedor_telefone2;
+    @FXML
+    private TextField fornecedor_idPesquisa;
+    @FXML
+    private Label erro_pais;
+    @FXML
+    private Label erro_municipio;
+    @FXML
+    private Label erro_rua;
 
     /**
      * Initializes the controller class.
      */
     @Override
     public void initialize(URL url, ResourceBundle rb) {
-        // TODO
+        
+        log_usuario.setText(LogUsuario.logUsers.get(0));
+        log_nivelAcesso.setText(LogUsuario.logUsers.get(1));
+        
     }    
 
     @FXML
@@ -108,66 +116,105 @@ public class PessoalGerenciamentoFornecedorController implements Initializable {
 
     @FXML
     private void fechar(MouseEvent event) {
+         MetodosComuns.mensagemSairTerminarLog(stckPane_conteiner_forncedor);
     }
 
-    @FXML
-    private void realceCampoNome_ext(MouseEvent event) {
-    }
-
-    @FXML
-    private void realceCampoNome(MouseEvent event) {
-    }
-
-    @FXML
-    private void realceCampo_endereco_ext(MouseEvent event) {
-    }
-
-    @FXML
-    private void realceCampo_endereco(MouseEvent event) {
-    }
-
-    @FXML
-    private void realceCampo_telefone1_ext(MouseEvent event) {
-    }
-
-    @FXML
-    private void realceCampo_telefone1(MouseEvent event) {
-    }
-
-    @FXML
-    private void realceCampo_telefone2_ext(MouseEvent event) {
-    }
-
-    @FXML
-    private void realceCampo_telefone2(MouseEvent event) {
-    }
-
-    @FXML
-    private void registrarFuncionario(ActionEvent event) {
-    }
-
-    @FXML
-    private void atualizar(MouseEvent event) {
-    }
-
-    @FXML
-    private void listarFuncionario(MouseEvent event) {
-    }
-
-    @FXML
-    private void limparCampos(MouseEvent event) {
-    }
 
     @FXML
     private void pesquisarFuncionario(ActionEvent event) {
+        
+         boolean txtPesquisa = ValidacaoCampos.textFieldNaoEstaVazia(fornecedor_idPesquisa, erro_pesquisa, "Campo Incorrecto *");
+         
+         if (txtPesquisa ) {
+            
+        }
+        
     }
 
     @FXML
-    private void realceCampo_idPesquisa_ext(MouseEvent event) {
+    private void adicionarFornecedor(MouseEvent event) {
+        
+        boolean txtNomeVazio = ValidacaoCampos.textFieldNaoEstaVazia(fornecedor_nome, erro_nome, "Campo Incorrecto *");
+        boolean txtPais = ValidacaoCampos.textFieldNaoEstaVazia(fornecedor_pais, erro_pais, "Campo Incorrecto *");
+        boolean txtRua = ValidacaoCampos.textFieldNaoEstaVazia(fornecedor_rua, erro_rua, "Campo Incorrecto *");
+        boolean txtMunicipio = ValidacaoCampos.textFieldNaoEstaVazia(fornecedor_municipio, erro_municipio, "Campo Incorrecto *");
+        boolean txtTelef = ValidacaoCampos.textFieldNaoEstaVaziaTelef(fornecedor_telefone1, erro_telef1, "Campo Incorrecto *");
+        boolean txtTelef1 = ValidacaoCampos.textFieldNaoEstaVaziaTelef(fornecedor_telefone2, erro_telef2, "Campo Incorrecto *");
+        
+        if (txtNomeVazio && txtPais && txtRua && txtMunicipio && txtTelef && txtTelef1 ) {
+            
+        }
+        
     }
 
     @FXML
-    private void realceCampo_idPesquisa(MouseEvent event) {
+    private void atualizarFornecedor(MouseEvent event) {
+        
+         boolean txtNomeVazio = ValidacaoCampos.textFieldNaoEstaVazia(fornecedor_nome, erro_nome, "Campo Incorrecto *");
+        boolean txtPais = ValidacaoCampos.textFieldNaoEstaVazia(fornecedor_pais, erro_pais, "Campo Incorrecto *");
+        boolean txtRua = ValidacaoCampos.textFieldNaoEstaVazia(fornecedor_rua, erro_rua, "Campo Incorrecto *");
+        boolean txtMunicipio = ValidacaoCampos.textFieldNaoEstaVazia(fornecedor_municipio, erro_municipio, "Campo Incorrecto *");
+        boolean txtTelef = ValidacaoCampos.textFieldNaoEstaVaziaTelef(fornecedor_telefone1, erro_telef1, "Campo Incorrecto *");
+        boolean txtTelef1 = ValidacaoCampos.textFieldNaoEstaVaziaTelef(fornecedor_telefone2, erro_telef2, "Campo Incorrecto *");
+        
+        if (txtNomeVazio && txtPais && txtRua && txtMunicipio && txtTelef && txtTelef1 ) {
+            
+        }
+        
     }
+
+    @FXML
+    private void listarFornecedor(MouseEvent event) {
+    }
+
+    @FXML
+    private void limparCamposFornecedor(MouseEvent event) {
+        limpar();
+    }
+    
+    
+      public void limpar() {
+
+        String textoNulo = "";
+
+        //Apagar valores no campo de texto , primeiro recuperar depois apagar
+        fornecedor_idPesquisa.getText();
+        fornecedor_nome.getText();
+        fornecedor_pais.getText();
+        fornecedor_rua.getText();
+        fornecedor_municipio.getText();
+        fornecedor_telefone1.getText();
+        fornecedor_telefone2.getText();
+        
+        
+        fornecedor_idPesquisa.setText(textoNulo);
+        fornecedor_nome.setText(textoNulo);
+        fornecedor_pais.setText(textoNulo);
+        fornecedor_rua.setText(textoNulo);
+        fornecedor_municipio.setText(textoNulo);
+        fornecedor_telefone1.setText(textoNulo);
+        fornecedor_telefone2.setText(textoNulo);
+
+        
+
+        //Apagar mensagens de erro, primeiro recuperar depois apagar
+        erro_pesquisa.getText();
+        erro_nome.getText();
+        erro_pais.getText();
+        erro_rua.getText();
+        erro_municipio.getText();
+        erro_telef1.getText();
+        erro_telef2.getText();
+        
+        erro_pesquisa.setText(textoNulo);
+        erro_nome.setText(textoNulo);
+        erro_pais.setText(textoNulo);
+        erro_rua.setText(textoNulo);
+        erro_municipio.setText(textoNulo);
+        erro_telef1.setText(textoNulo);
+        erro_telef2.setText(textoNulo);
+
+    }
+
     
 }

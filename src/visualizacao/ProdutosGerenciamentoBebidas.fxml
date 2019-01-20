@@ -8,98 +8,132 @@
 <?import javafx.scene.control.TextField?>
 <?import javafx.scene.image.Image?>
 <?import javafx.scene.image.ImageView?>
+<?import javafx.scene.layout.AnchorPane?>
+<?import javafx.scene.layout.BorderPane?>
 <?import javafx.scene.layout.Pane?>
 <?import javafx.scene.layout.StackPane?>
 <?import javafx.scene.text.Font?>
 
 <StackPane fx:id="stack_bebidas" maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="600.0" prefWidth="1000.0" xmlns="http://javafx.com/javafx/10.0.1" xmlns:fx="http://javafx.com/fxml/1" fx:controller="controladores.ProdutosGerenciamentoBebidasController">
    <children>
-      <Pane maxWidth="380.0" nodeOrientation="LEFT_TO_RIGHT" prefHeight="500.0" prefWidth="380.0" StackPane.alignment="TOP_LEFT">
-         <children>
-            <Label layoutX="103.0" layoutY="14.0" text="Gerenciamento de Bebidas">
-               <font>
-                  <Font name="System Bold" size="14.0" />
-               </font>
-            </Label>
-            <Label fx:id="log_usuario" layoutX="170.0" layoutY="32.0" text="Usuario" />
-            <Label fx:id="log_nivelAcesso" layoutX="148.0" layoutY="48.0" text="Nivel de Acesso" />
-            <ImageView fitHeight="17.0" fitWidth="41.0" layoutX="50.0" layoutY="39.0" onMouseClicked="#voltarBtn" pickOnBounds="true" preserveRatio="true">
-               <image>
-                  <Image url="@../imagens/voltar.png" />
-               </image>
-            </ImageView>
-            <ImageView fitHeight="25.0" fitWidth="40.0" layoutX="283.0" layoutY="39.0" onMouseClicked="#fechar" pickOnBounds="true" preserveRatio="true">
-               <image>
-                  <Image url="@../imagens/006-exit.png" />
-               </image>
-            </ImageView>
-            <Button layoutX="9.0" layoutY="105.0" mnemonicParsing="false" onAction="#pesquisarFuncionario" prefWidth="80.0" style="-fx-background-color: #09e2a7;" text="Procurar">
-               <font>
-                  <Font name="System Bold" size="11.0" />
-               </font>
-            </Button>
-            <ComboBox layoutX="128.0" layoutY="104.0" prefHeight="25.0" prefWidth="108.0" promptText="Categoría" />
-            <Label fx:id="erro_pesquisa" layoutX="135.0" layoutY="131.0" textFill="RED" />
-            <ImageView fx:id="imagemBebida" fitHeight="70.0" fitWidth="122.0" layoutX="247.0" layoutY="70.0" pickOnBounds="true" preserveRatio="true" />
-            <Label layoutX="12.0" layoutY="161.0" text="Nome" />
-            <TextField fx:id="funcionario_nome" layoutX="128.0" layoutY="147.0" maxWidth="150.0" minWidth="150.0" onMouseEntered="#realceCampoNome" onMouseExited="#realceCampoNome_ext" prefWidth="150.0" promptText="Por favor insira o nome" style="-fx-border-color: #c5c3c3;" />
-            <Label fx:id="erro_nome" layoutX="135.0" layoutY="170.0" textFill="RED" />
-            <Label layoutX="12.0" layoutY="195.0" prefHeight="15.0" prefWidth="116.0" text="Categoría" />
-            <ComboBox layoutX="128.0" layoutY="191.0" prefWidth="150.0" promptText="Categoria" />
-            <Label fx:id="erro_bi" layoutX="135.0" layoutY="217.0" textFill="RED" />
-            <Label layoutX="12.0" layoutY="236.0" text="Qtd Total" />
-            <TextField fx:id="funcionario_endereco" layoutX="128.0" layoutY="231.0" maxWidth="150.0" minWidth="150.0" onMouseEntered="#realceCampo_endereco" onMouseExited="#realceCampo_endereco_ext" prefWidth="150.0" promptText="Quantidade Total" style="-fx-border-color: #c5c3c3;" />
-            <Label fx:id="erro_endereco" layoutX="135.0" layoutY="258.0" textFill="RED" />
-            <Label layoutX="12.0" layoutY="277.0" text="Qtd Mínima" />
-            <TextField fx:id="funcionario_telefone1" layoutX="128.0" layoutY="272.0" maxWidth="150.0" minWidth="150.0" onMouseEntered="#realceCampo_telefone1" onMouseExited="#realceCampo_telefone1_ext" prefWidth="150.0" promptText="Quantidade Mínima" style="-fx-border-color: #c5c3c3;" />
-            <Label fx:id="erro_telef1" layoutX="135.0" layoutY="299.0" textFill="RED" />
-            <Label layoutX="12.0" layoutY="321.0" prefHeight="15.0" prefWidth="88.0" text="Medida" />
-            <ComboBox layoutX="128.0" layoutY="317.0" maxWidth="150.0" minWidth="150.0" prefWidth="150.0" promptText="Medida" />
-            <Label fx:id="erro_telef2" layoutX="135.0" layoutY="343.0" textFill="RED" />
-            <Label layoutX="12.0" layoutY="361.0" prefHeight="17.0" prefWidth="99.0" text="Qtd Estoque Min" />
-            <TextField layoutX="129.0" layoutY="357.0" maxWidth="150.0" minWidth="150.0" prefWidth="150.0" promptText="Qtd no estoque" />
-            <Label fx:id="erro_cargo" layoutX="135.0" layoutY="382.0" textFill="RED" />
-            <Label layoutX="12.0" layoutY="401.0" text="Qt Estoque Max" />
-            <TextField fx:id="funcionario_salario" layoutX="128.0" layoutY="396.0" minWidth="150.0" onMouseEntered="#realceCampoSalario" onMouseExited="#realceCampoSalario_ext" prefWidth="150.0" promptText="Qtd Max no estoque" style="-fx-border-color: #c5c3c3;" />
-            <Label fx:id="erro_salario" layoutX="135.0" layoutY="418.0" textFill="RED" />
-            <Label layoutX="12.0" layoutY="438.0" text="Valor da Compra" />
-            <TextField fx:id="funcionario_usuario" layoutX="128.0" layoutY="434.0" prefHeight="25.0" prefWidth="150.0" promptText="Valor da compra" />
-            <Label fx:id="erro_usuario" layoutX="135.0" layoutY="459.0" textFill="RED" />
-            <Label layoutX="12.0" layoutY="478.0" text="Preço Unitário" />
-            <TextField fx:id="funcionario_senha" layoutX="128.0" layoutY="474.0" prefHeight="25.0" prefWidth="150.0" promptText="Preço unitário" />
-            <Label fx:id="erro_senha" layoutX="135.0" layoutY="494.0" textFill="RED" />
-            <Button fx:id="btnEscolherFoto" layoutX="12.0" layoutY="519.0" mnemonicParsing="false" onAction="#escolherFoto" text="Escolher uma foto" />
-            <Pane layoutX="12.0" layoutY="558.0" prefHeight="38.0" prefWidth="357.0">
+      <BorderPane prefHeight="200.0" prefWidth="200.0">
+         <center>
+            <TableView maxWidth="880.0" prefHeight="200.0" prefWidth="200.0" BorderPane.alignment="CENTER">
+              <columns>
+                <TableColumn prefWidth="120.0" text="Produto" />
+                <TableColumn prefWidth="120.0" text="Categoría" />
+                  <TableColumn prefWidth="120.0" text="Qtd. Total" />
+                  <TableColumn prefWidth="120.0" text="Qtd. Minima" />
+                  <TableColumn prefWidth="120.0" text="Qtd. Stoque Min" />
+                  <TableColumn prefWidth="120.0" text="Qtd. Stoque Max" />
+                  <TableColumn prefWidth="75.0" text="Preço Unit" />
+                  <TableColumn prefWidth="75.0" text="Fornecedor" />
+              </columns>
+            </TableView>
+         </center>
+         <left>
+            <Pane maxWidth="380.0" nodeOrientation="LEFT_TO_RIGHT" prefHeight="500.0" prefWidth="380.0" BorderPane.alignment="CENTER">
                <children>
-                  <Button fx:id="btn_func_adicionar" layoutX="6.0" layoutY="4.0" mnemonicParsing="false" onAction="#registrarFuncionario" prefHeight="30.0" prefWidth="80.0" style="-fx-background-color: #09e2a7;" text="Adicionar">
-                     <font>
-                        <Font name="System Bold" size="11.0" />
-                     </font>
-                  </Button>
-                  <Button layoutX="93.0" layoutY="4.0" mnemonicParsing="false" onMouseClicked="#atualizar" prefHeight="30.0" prefWidth="80.0" style="-fx-background-color: #09e2a7;" text="Atualizar">
-                     <font>
-                        <Font name="System Bold" size="11.0" />
-                     </font>
-                  </Button>
-                  <Button layoutX="182.0" layoutY="4.0" mnemonicParsing="false" onMouseClicked="#listarFuncionario" prefHeight="30.0" prefWidth="80.0" style="-fx-background-color: #09e2a7;" text="Listar">
-                     <font>
-                        <Font name="System Bold" size="11.0" />
-                     </font>
-                  </Button>
-                  <Button layoutX="271.0" layoutY="4.0" mnemonicParsing="false" onMouseClicked="#limparCampos" prefHeight="30.0" prefWidth="80.0" style="-fx-background-color: #09e2a7;" text="Limpar">
-                     <font>
-                        <Font name="System Bold" size="11.0" />
-                     </font>
-                  </Button>
+                  <ImageView fx:id="imagemBebida" fitHeight="70.0" fitWidth="122.0" layoutX="247.0" layoutY="14.0" pickOnBounds="true" preserveRatio="true" />
+                  <Label layoutX="12.0" layoutY="105.0" text="Bebida" />
+                  <TextField fx:id="bebida_bebida" layoutX="128.0" layoutY="91.0" maxWidth="150.0" minWidth="150.0" prefWidth="150.0" promptText="Por favor insira a bebida" style="-fx-border-color: #c5c3c3;" />
+                  <Label fx:id="erro_bebida" layoutX="135.0" layoutY="114.0" textFill="RED" />
+                  <Label layoutX="12.0" layoutY="139.0" prefHeight="15.0" prefWidth="116.0" text="Categoría" />
+                  <ComboBox fx:id="bebida_categoria" layoutX="128.0" layoutY="135.0" prefWidth="150.0" promptText="Categoria" />
+                  <Label fx:id="erro_categoria" layoutX="135.0" layoutY="161.0" textFill="RED" />
+                  <Label layoutX="12.0" layoutY="180.0" text="Qtd Total" />
+                  <TextField fx:id="bebida_qtdTotal" layoutX="128.0" layoutY="175.0" maxWidth="150.0" minWidth="150.0" prefWidth="150.0" promptText="Quantidade Total" style="-fx-border-color: #c5c3c3;" />
+                  <Label fx:id="erro_qtdTotal" layoutX="135.0" layoutY="202.0" textFill="RED" />
+                  <Label layoutX="12.0" layoutY="221.0" text="Qtd Mínima" />
+                  <TextField fx:id="funcionario_telefobebida_qtd_minne1" layoutX="128.0" layoutY="216.0" maxWidth="150.0" minWidth="150.0" prefWidth="150.0" promptText="Quantidade Mínima" style="-fx-border-color: #c5c3c3;" />
+                  <Label fx:id="erro_qtdmin" layoutX="135.0" layoutY="243.0" textFill="RED" />
+                  <Label layoutX="12.0" layoutY="265.0" prefHeight="15.0" prefWidth="88.0" text="Medida" />
+                  <ComboBox fx:id="bebida_combo_medida" layoutX="128.0" layoutY="261.0" maxWidth="150.0" minWidth="150.0" prefWidth="150.0" promptText="Medida" />
+                  <Label fx:id="erro_medida" layoutX="135.0" layoutY="287.0" textFill="RED" />
+                  <Label layoutX="12.0" layoutY="305.0" prefHeight="17.0" prefWidth="99.0" text="Qtd Estoque Min" />
+                  <TextField fx:id="bebida_qdt_min_estoque" layoutX="129.0" layoutY="301.0" maxWidth="150.0" minWidth="150.0" prefWidth="150.0" promptText="Qtd no estoque" />
+                  <Label fx:id="erro_qtdEstoque" layoutX="135.0" layoutY="326.0" textFill="RED" />
+                  <Label layoutX="12.0" layoutY="345.0" text="Qt Estoque Max" />
+                  <TextField fx:id="bebida_qtd_max_estoque" layoutX="128.0" layoutY="340.0" minWidth="150.0" prefWidth="150.0" promptText="Qtd Max no estoque" style="-fx-border-color: #c5c3c3;" />
+                  <Label fx:id="erro_qtdEstoque_max" layoutX="135.0" layoutY="362.0" textFill="RED" />
+                  <Label layoutX="12.0" layoutY="382.0" text="Valor da Compra" />
+                  <TextField fx:id="bebida_valor_compra" layoutX="128.0" layoutY="378.0" prefHeight="25.0" prefWidth="150.0" promptText="Valor da compra" />
+                  <Label fx:id="erro_valorCompra" layoutX="135.0" layoutY="403.0" textFill="RED" />
+                  <Label layoutX="12.0" layoutY="422.0" text="Preço Unitário" />
+                  <TextField fx:id="bebida_preco_unit" layoutX="128.0" layoutY="418.0" prefHeight="25.0" prefWidth="150.0" promptText="Preço unitário" />
+                  <Label fx:id="erro_preco_unit" layoutX="135.0" layoutY="438.0" textFill="RED" />
+                  <Button fx:id="btnEscolherFoto" layoutX="12.0" layoutY="463.0" mnemonicParsing="false" onAction="#escolherFoto" text="Escolher uma foto" />
                </children>
             </Pane>
-         </children>
-      </Pane>
-      <TableView maxWidth="880.0" prefHeight="200.0" prefWidth="200.0" StackPane.alignment="TOP_RIGHT">
-        <columns>
-          <TableColumn prefWidth="75.0" text="C1" />
-          <TableColumn prefWidth="75.0" text="C2" />
-        </columns>
-      </TableView>
+         </left>
+         <top>
+            <AnchorPane prefHeight="45.0" prefWidth="509.0" BorderPane.alignment="CENTER">
+               <children>
+                  <AnchorPane layoutX="5.0" layoutY="3.0" prefHeight="55.0" prefWidth="374.0">
+                     <children>
+                        <Label layoutX="72.0" layoutY="-1.0" text="Gerenciamento de Funcionários">
+                           <font>
+                              <Font name="System Bold" size="14.0" />
+                           </font>
+                        </Label>
+                        <Label fx:id="log_usuario1" layoutX="145.0" layoutY="19.0" text="Usuario" />
+                        <Label fx:id="log_nivelAcesso1" layoutX="123.0" layoutY="38.0" text="Nivel de Acesso" />
+                        <ImageView fitHeight="17.0" fitWidth="41.0" layoutX="14.0" layoutY="19.0" onMouseClicked="#voltarBtn" pickOnBounds="true" preserveRatio="true">
+                           <image>
+                              <Image url="@../imagens/voltar.png" />
+                           </image>
+                        </ImageView>
+                        <ImageView fitHeight="25.0" fitWidth="40.0" layoutX="291.0" layoutY="15.0" onMouseClicked="#fechar" pickOnBounds="true" preserveRatio="true">
+                           <image>
+                              <Image url="@../imagens/006-exit.png" />
+                           </image>
+                        </ImageView>
+                     </children>
+                  </AnchorPane>
+                  <Pane layoutX="720.0" layoutY="9.0" prefHeight="43.0" prefWidth="268.0" AnchorPane.rightAnchor="0.0">
+                     <children>
+                        <Button layoutX="16.0" layoutY="11.0" mnemonicParsing="false" onAction="#pesquisarFuncionario" prefWidth="80.0" style="-fx-background-color: #09e2a7;" text="Procurar">
+                           <font>
+                              <Font name="System Bold" size="11.0" />
+                           </font>
+                        </Button>
+                        <ComboBox layoutX="135.0" layoutY="10.0" prefHeight="25.0" prefWidth="108.0" promptText="Categoría" />
+                     </children>
+                  </Pane>
+               </children>
+            </AnchorPane>
+         </top>
+         <bottom>
+            <Pane prefHeight="38.0" prefWidth="357.0" BorderPane.alignment="CENTER">
+               <children>
+                  <Button fx:id="btn_func_adicionar" layoutX="6.0" layoutY="2.0" mnemonicParsing="false" onMouseClicked="#registrarBebida" prefHeight="30.0" prefWidth="80.0" style="-fx-background-color: #09e2a7;" text="Adicionar">
+                     <font>
+                        <Font name="System Bold" size="11.0" />
+                     </font>
+                  </Button>
+                  <Button layoutX="93.0" layoutY="2.0" mnemonicParsing="false" onMouseClicked="#atualizarBebida" prefHeight="30.0" prefWidth="80.0" style="-fx-background-color: #09e2a7;" text="Atualizar">
+                     <font>
+                        <Font name="System Bold" size="11.0" />
+                     </font>
+                  </Button>
+                  <Button layoutX="182.0" layoutY="2.0" mnemonicParsing="false" onMouseClicked="#listarBebida" prefHeight="30.0" prefWidth="80.0" style="-fx-background-color: #09e2a7;" text="Listar">
+                     <font>
+                        <Font name="System Bold" size="11.0" />
+                     </font>
+                  </Button>
+                  <Button layoutX="271.0" layoutY="2.0" mnemonicParsing="false" onMouseClicked="#limparCamposBebida" prefHeight="30.0" prefWidth="80.0" style="-fx-background-color: #09e2a7;" text="Limpar">
+                     <font>
+                        <Font name="System Bold" size="11.0" />
+                     </font>
+                  </Button>
+                  <Label layoutX="623.0" layoutY="13.0" prefHeight="22.0" prefWidth="155.0" text="Copyright 2019 by ITSoul" textAlignment="CENTER">
+                     <font>
+                        <Font name="Times New Roman" size="12.0" />
+                     </font>
+                  </Label>
+               </children>
+            </Pane>
+         </bottom>
+      </BorderPane>
    </children>
 </StackPane>

@@ -1,3 +1,4 @@
+
 /*
  * To change this license header, choose License Headers in Project Properties.
  * To change this template file, choose Tools | Templates
@@ -11,6 +12,8 @@ import javafx.scene.Parent;
 import javafx.scene.Scene;
 import javafx.stage.Stage;
 import javafx.stage.StageStyle;
+import javax.persistence.EntityManagerFactory;
+import javax.persistence.Persistence;
 
 /**
  *
@@ -18,9 +21,11 @@ import javafx.stage.StageStyle;
  */
 public class GestaoBarItSol extends Application {
     
+    public static final EntityManagerFactory FACTORY = Persistence.createEntityManagerFactory("teste.jpa");
+    
     @Override
     public void start(Stage stage) throws Exception {
-        Parent root = FXMLLoader.load(getClass().getResource("/visualizacao/BemVindo.fxml"));
+        Parent root = FXMLLoader.load(getClass().getResource("/visualizacao/LoginInicial.fxml"));
         
         Scene scene = new Scene(root);
         
@@ -37,3 +42,4 @@ public class GestaoBarItSol extends Application {
     }
     
 }
+

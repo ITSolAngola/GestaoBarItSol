@@ -16,9 +16,51 @@ import javafx.scene.control.TextField;
  */
 public class ValidacaoCampos {
     
+    public static boolean textFieldNaoEstaVaziaTelef(TextField tf){
+        boolean estado = false;
+        if (tf.getText().length() != 0 || !tf.getText().isEmpty()){
+            if((tf.getText().matches("[0-9]+"))){
+                 estado = true;
+            }
+        }
+        return estado;
+    }
+    
+    public static boolean textFieldNaoEstaVaziaTelef(TextField tf,Label lb,String mensagemErro){
+        boolean estado = true;
+        String mensagem = null;
+        if (!textFieldNaoEstaVaziaTelef(tf)){
+            estado = false;
+            mensagem = mensagemErro;   
+        }
+        lb.setText(mensagem);
+        return estado;
+    }
+    
+    
+    public static boolean textFieldNaoEstaVaziaBi(TextField tf){
+        boolean estado = false;
+        if ((tf.getText().length() != 0 || !tf.getText().isEmpty()) && (tf.getText().matches("[0-9]+[a-zA-Z]+")) )
+            estado = true;
+        return estado;
+    }
+    
+    public static boolean textFieldNaoEstaVaziaBi(TextField tf,Label lb,String mensagemErro){
+        boolean estado = true;
+        String mensagem = null;
+        //tf.getStyleClass().remove("erro");
+        if (!textFieldNaoEstaVaziaBi(tf)){
+            estado = false;
+            mensagem = mensagemErro;   
+        }
+        lb.setText(mensagem);
+        return estado;
+    }
+    
+    
     public static boolean textFieldNaoEstaVazia(TextField tf){
         boolean estado = false;
-        if (tf.getText().length() != 0 || !tf.getText().isEmpty())
+        if ((tf.getText().length() != 0 || !tf.getText().isEmpty() ) && (tf.getText().matches("([a-zA-Z]+(\\s)*)+")) )
             estado = true;
         return estado;
     }

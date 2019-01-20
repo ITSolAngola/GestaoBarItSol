@@ -137,7 +137,7 @@ public class PessoalGerenciamentoController implements Initializable {
         fornecedorTela.setScene(scene);
         fornecedorTela.setMaximized(true);
         fornecedorTela.setResizable(false);
-        fornecedorTela.close();
+        current.close();
         fornecedorTela.show();
         
     }

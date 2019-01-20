@@ -10,7 +10,7 @@
 
 <StackPane fx:id="stackGerenciaBar" maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="600.0" prefWidth="1000.0" style="-fx-background-image:url(imagens/fundo_bg_colo.jpg)" xmlns="http://javafx.com/javafx/10.0.1" xmlns:fx="http://javafx.com/fxml/1" fx:controller="controladores.AdministradorController">
    <children>
-      <Pane maxWidth="265.0" prefHeight="600.0" prefWidth="350.0" style="-fx-background-color: #fff;" StackPane.alignment="TOP_LEFT">
+      <Pane fx:id="panePrincipal" maxWidth="265.0" prefHeight="600.0" prefWidth="350.0" style="-fx-background-color: #fff;" StackPane.alignment="TOP_LEFT">
          <children>
             <Pane prefHeight="64.0" prefWidth="272.0">
                <children>

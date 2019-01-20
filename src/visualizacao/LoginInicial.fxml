@@ -15,15 +15,15 @@
          <children>
             <Pane layoutX="110.0" layoutY="50.0" maxHeight="500.0" maxWidth="500.0" opacity="0.83" prefHeight="500.0" prefWidth="500.0" style="-fx-background-color: #fff;">
                <children>
-                  <Label layoutX="177.0" layoutY="135.0" text="Autênticação">
+                  <Label layoutX="177.0" layoutY="135.0" text="Bar Acácias">
                      <font>
                         <Font size="24.0" />
                      </font>
                   </Label>
                   <Label layoutX="113.0" layoutY="223.0" text="Usuário" />
-                  <TextField fx:id="txtUsuario" layoutX="173.0" layoutY="219.0" prefWidth="150.0" />
+                  <TextField fx:id="txtUsuario" layoutX="173.0" layoutY="219.0" prefWidth="150.0" text="esaldino" />
                   <Label layoutX="113.0" layoutY="260.0" text="Senha" />
-                  <PasswordField fx:id="txtSenha" layoutX="173.0" layoutY="256.0" prefWidth="150.0" />
+                  <PasswordField fx:id="txtSenha" layoutX="173.0" layoutY="256.0" prefWidth="150.0" text="uma123" />
                   <Button layoutX="166.0" layoutY="317.0" mnemonicParsing="false" onMouseClicked="#login" prefHeight="20.0" prefWidth="80.0" style="-fx-background-color: #09e2a7;" text="Entrar" textFill="#fffcfc">
                      <font>
                         <Font name="System Bold" size="14.0" />
@@ -34,6 +34,8 @@
                         <Font name="System Bold" size="14.0" />
                      </font>
                   </Button>
+                  <Label fx:id="erro_usuario" layoutX="335.0" layoutY="223.0" textFill="RED" />
+                  <Label fx:id="erro_senha" layoutX="335.0" layoutY="260.0" textFill="RED" />
                </children>
             </Pane>
          </children>
